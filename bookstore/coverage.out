@@ -1,0 +1,4 @@
+mode: set
+bookstore/bookstore.go:11.32,13.19 1 1
+bookstore/bookstore.go:13.19,15.3 1 0
+bookstore/bookstore.go:17.2,18.15 2 1
