@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fda7fb0-0117-449d-b5c7-5f246c6c1aa5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/books/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookstore/bookstore.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookstore/bookstore_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookstore/coverage.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookstore/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookstore/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculator/calculator.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculator/calculator_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculator/cmd/calculator/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculator/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mytypes/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mytypes/mytypes.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mytypes/mytypes_test.go" afterDir="false" />
+    <list default="true" id="4fda7fb0-0117-449d-b5c7-5f246c6c1aa5" name="Changes" comment="adds some exercises">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookstore/bookstore.go" beforeDir="false" afterPath="$PROJECT_DIR$/bookstore/bookstore.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookstore/bookstore_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/bookstore/bookstore_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +21,9 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+  </component>
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,26 +36,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go Test.go test bookstore.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/S79BB/workspaces/Teatown-Software/Upskilling/for-the-love-of-Go&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go Test.go test bookstore.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "develop",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/S79BB/workspaces/Teatown-Software/Upskilling/for-the-love-of-Go",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mytypes" />
@@ -124,7 +116,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates README.md" />
     <MESSAGE value="adds gitignore file" />
-    <option name="LAST_COMMIT_MESSAGE" value="adds gitignore file" />
+    <MESSAGE value="adds some exercises" />
+    <option name="LAST_COMMIT_MESSAGE" value="adds some exercises" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

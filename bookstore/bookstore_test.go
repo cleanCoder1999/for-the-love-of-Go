@@ -3,6 +3,7 @@ package bookstore_test
 import (
 	"bookstore"
 	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
 	"sort"
 	"testing"
 )
@@ -59,7 +60,7 @@ func TestGetAllBooks(t *testing.T) {
 	sort.Slice(got, func(i, j int) bool {
 		return got[i].ID < got[j].ID
 	})
-	if !cmp.Equal(want, got) {
+	if !cmp.Equal(want, got, cmpopts.IgnoreUnexported(bookstore.Book{})) {
 		t.Error(cmp.Diff(want, got))
 	}
 }
@@ -78,7 +79,7 @@ func TestGetBook(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !cmp.Equal(want, got) {
+	if !cmp.Equal(want, got, cmpopts.IgnoreUnexported(bookstore.Book{})) {
 		t.Error(cmp.Diff(want, got))
 	}
 }
@@ -102,6 +103,52 @@ func TestNetPriceCents(t *testing.T) {
 	}
 }
 
+func TestSetPriceCents(t *testing.T) {
+	t.Parallel()
+
+	want := 500
+
+	book := bookstore.Book{
+		ID:              1,
+		Title:           "For the Love of Go",
+		PriceCents:      10000,
+		DiscountPercent: 25,
+	}
+
+	err := book.SetPriceCents(want)
+	if err != nil {
+		t.Fatal("want no error, got ", err)
+	}
+
+	got := book.PriceCents
+
+	if want != got {
+		t.Errorf("want %d, got %d", want, got)
+	}
+}
+
+func TestSetCategory(t *testing.T) {
+	t.Parallel()
+
+	b := bookstore.Book{}
+	cats := []bookstore.Category{
+		bookstore.CategoryAutobiography,
+		bookstore.CategoryLargePrintRomance,
+		bookstore.CategoryParticlePhysics,
+	}
+
+	for _, cat := range cats {
+		err := b.SetCategory(cat)
+		if err != nil {
+			t.Fatal(err)
+		}
+		got := b.Category()
+		if cat != got {
+			t.Errorf("want category %q, got %q", cat, got)
+		}
+	}
+}
+
 // ########### INVALID INPUT CASES
 func TestGetBookInvalid(t *testing.T) {
 	t.Parallel()
@@ -114,5 +161,32 @@ func TestGetBookInvalid(t *testing.T) {
 	_, err := catalog.GetBook(3)
 	if err == nil {
 		t.Fatal("want error for non-existent ID, got nil")
+	}
+}
+
+func TestSetPriceCentsInvalid(t *testing.T) {
+	t.Parallel()
+
+	book := bookstore.Book{
+		ID:              1,
+		Title:           "For the Love of Go",
+		PriceCents:      10000,
+		DiscountPercent: 25,
+	}
+
+	err := book.SetPriceCents(-500)
+	if err == nil {
+		t.Fatal("want error, got nil")
+	}
+}
+
+func TestSetCategoryInvalid(t *testing.T) {
+	t.Parallel()
+	b := bookstore.Book{
+		Title: "For the Love of Go",
+	}
+	err := b.SetCategory(999)
+	if err == nil {
+		t.Fatal("want error for invalid category, got nil")
 	}
 }

@@ -5,6 +5,20 @@ import (
 	"fmt"
 )
 
+type Category int
+
+const (
+	CategoryAutobiography Category = iota
+	CategoryLargePrintRomance
+	CategoryParticlePhysics
+)
+
+var validCategory = map[Category]bool{
+	CategoryAutobiography:     true,
+	CategoryLargePrintRomance: true,
+	CategoryParticlePhysics:   true,
+}
+
 type Book struct {
 	Title           string `json:"title"`
 	Author          string `json:"author"`
@@ -12,6 +26,7 @@ type Book struct {
 	ID              int
 	PriceCents      int `json:"net_price_cents"`
 	DiscountPercent int
+	category        Category
 }
 
 type Catalog map[int]Book
@@ -47,7 +62,30 @@ func (c Catalog) GetBook(id int) (Book, error) {
 	return Book{}, fmt.Errorf("no book with id=%d found", id)
 }
 
-func (b Book) NetPriceCents() int {
+func (b *Book) NetPriceCents() int {
 	saving := b.PriceCents * b.DiscountPercent / 100
 	return b.PriceCents - saving
+}
+
+func (b *Book) SetPriceCents(p int) error {
+	if p < 0 {
+		return errors.New("price cents must be greater than zero")
+	}
+
+	(*b).PriceCents = p
+	return nil
+}
+
+func (b *Book) SetCategory(c Category) error {
+
+	if !validCategory[c] {
+		return fmt.Errorf("unknown category %q", c)
+	}
+
+	b.category = c
+	return nil
+}
+
+func (b Book) Category() Category {
+	return b.category
 }
